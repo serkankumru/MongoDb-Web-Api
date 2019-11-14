@@ -31,7 +31,7 @@ namespace NoSQL.Controllers
             entity.Surname = "kumru";
             return Ok(_UserRepository.Insert(entity));
         }
-
+        [ResponseType(typeof(Users))]
         public IHttpActionResult Put([FromBody]Users entity)
         {
             if (entity == null || !ModelState.IsValid)
@@ -40,7 +40,7 @@ namespace NoSQL.Controllers
             }
             return Ok(_UserRepository.Update(entity));
         }
-
+        
         public IHttpActionResult Delete(string id)
         {
             Users user = _UserRepository.GetById(id);
